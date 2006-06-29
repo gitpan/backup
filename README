@@ -1,0 +1,103 @@
+
+NAME
+       backup - renames multiple files to have their timestamp in the filename
+
+SYNOPSIS
+
+       backup [ -c ] [ -f ] [ -m ] [ -n ] [ -u ] [ -v ] [ files ]
+
+DESCRIPTION
+
+       "backup" backs up the filenames supplied to copies which include the
+       original file's timestamp in their name.
+
+       e.g.
+
+	   backup FILE
+
+       would create FILE.<timestamp>
+
+       If no filenames are given on the command line, filenames will be read
+       via standard input (as 'rename' command does).
+
+       If the argument --move (or one of its forms) is given the file will be
+       renamed (the default is to create a copy).
+
+	   backup --mv FILE
+
+OPTIONS
+       -m, --mv, --move
+	       Move: move the file instead of copying it.
+
+       -c, --cp, --copy
+	       Copy: (default action so ignored) This is the default because
+	       it may be safer to copy a file than go renaming it if it is in
+	       use (e.g. a log file) but it will use more disk space!
+
+       -v, --verbose
+	       Verbose: print names of files successfully backed up.
+
+       -n, --no-act
+	       No Action: show what files would have been backed up.
+
+       -f, --force
+	       Force: overwrite existing files.
+
+       -u, --usage, --help
+	       Usage: show usage
+
+ENVIRONMENT
+       No environment variables are used.
+
+AUTHOR
+       John G. Harrison <http://www.aotea.org/john/>
+
+COPYRIGHT
+       Copyright (C) 2005, John G. Harrison, all rights reserved.
+
+       This is free software; you can redistribute it and/or modify it under
+       the same terms as Perl itself.
+
+SEE ALSO
+       mv(1), perl(1), localtime(3), rename(1)
+
+DIAGNOSTICS
+       If the new filename already exists or the file already has the times-
+       tamp in its name you'll get an error.
+
+TODO
+       Perhaps timestamp formatting could be specified on the command line
+       (ala date).
+
+       The shell script version has two options, --mvtn and --cptn
+
+BUGS
+       The --copy option doesn't work on directories, it creates a file then
+       fails.
+
+       The --move option works on a directory if the target doesn't already
+       exist.  (move would overwrite an empty target dir or fail on a non-
+       empty target dir)
+
+       If you find any bugs or have suggestions, please let the me know...
+       (the best contact method is via my website, because this email address
+       gets much too much spam)
+
+
+The script is fully documented using pod.
+Once installed you should be able to use perldoc backup to get a man page.
+
+The script requires several modules from CPAN. You can get the latest
+version via the CPAN multiplexor at http://www.perl.com/CPAN/
+
+	What		Where
+
+	Time::localtime In the Perl distribution
+	File::Copy      In the Perl distribution
+	Getopt::Long    $CPAN/authors/id/J/JV/JV/Getopt-Long-<version>.tar.gz
+
+I'd be happy to hear of any suggestions for improving this script.
+
+John Harrison <japh@in-ta.net>
+--
+$Id: README,v 1.5 2006/06/29 09:53:03 john Exp $

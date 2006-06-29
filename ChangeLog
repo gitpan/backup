@@ -1,0 +1,26 @@
+
+1.5 jgh  26-jan-2006
+
+	* Set atime and mtime of target file to be the same as source file.
+
+1.4 jgh  13-feb-2005
+
+	* Catch filename already with timestamp, added getopt & podified.
+
+1.3 jgh 23-sep-2004
+
+	* First perl version (ported from shell script)
+
+1.2 jgh 10-apr-2002
+
+	* Standardise to strings (use variables instead of $(...) in action)
+
+1.1 jgh 05-jan-2002
+
+	* Add -mv option (@a-z)
+
+1.0 jgh 11-apr-2001
+
+	* Original shell script version for revisioning kickstart work
+	  (@fnc apt Brentford)
+
